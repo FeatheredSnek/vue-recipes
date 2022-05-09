@@ -40,5 +40,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  }
+  },
+
+  publicRuntimeConfig: {
+    apiBaseURL: 'http://127.0.0.1'
+  },
 }
