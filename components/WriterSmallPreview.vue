@@ -1,38 +1,58 @@
 <template>
+  <!-- TODO fetch status v-if-else  -->
   <div class="writer">
     <h3>
-      <span v-if="friendlyId">
-        <nuxt-link :to="{name: 'writers-id', params: {id: friendlyId}}">
+      <span>
+        <nuxt-link :to="{name: 'writers-id', params: {id: id}}">
           {{ name }}
         </nuxt-link>
       </span>
-      <span v-else>
-        {{ name }}
-      </span>
+      <span v-if="badge"> ★ </span>
     </h3>
     <p>{{ shortBio }}</p>
+    <p>
+      <span v-if="socials.facebook">
+        <a :href="socials.facebook">Facebook</a>
+      </span> - 
+      <span v-if="socials.instagram">
+        <a :href="socials.instagram">Instagram</a>
+      </span> - 
+      <span v-if="socials.twitter">
+        <a :href="socials.twitter">Twitter</a>
+      </span> - 
+      <span v-if="socials.tiktok">
+        <a :href="socials.tiktok">Tiktok</a>
+      </span>
+    </p>
   </div>
 </template>
 
 <script>
   export default {
     name: "WriterSmallPreview",
+    data() {
+      return {
+        name: '',
+        shortBio: '',
+        socials: {},
+        badge: false
+      }
+    },
     props: {
-      name: {
+      id: {
         type: String,
-        required: false,
-        default: 'Anonymous author'
-      },
-      shortBio: {
-        type: String,
-        required: false,
-        default: 'No information about the recipe author'
-      },
-      friendlyId: {
-        type: String,
-        required: false,
-        default: null
-      },
+        required: true
+      }
+    },
+    async fetch() {
+      // let apiURL = `${this.$config.apiBaseURL}/writer.php?friendly_id=${this.$props.id}`;
+      let apiURL = `${this.$config.apiBaseURL}/writer.php?friendly_id=john_cook`;
+      let apiResponseA = await this.$http.$get(apiURL);
+      let apiResponse = apiResponseA.writer
+      this.name = apiResponse.name
+      this.shortBio = apiResponse.short_bio
+      this.socials = apiResponse.socials
+      this.badge = apiResponse.badge
     }
   }
 </script>
