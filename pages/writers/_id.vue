@@ -1,28 +1,46 @@
 <template>
+  <!-- TODO fetch state messages -->
   <div>
-    <!-- TODO merge details component with this page as its not used anywhere else??? -->
-    <WriterDetails
-      :name="writerData.name"
-      :bio="writerData.long_bio"
-      :socials="socialLinksObject"
-      :badge="!!writerData.flag_badge"
-    />
+    <div>
+      <h1>
+        <span>{{ name }}</span>
+        <span v-if="badge"> ★ </span>
+      </h1>
+      <h2>About the writer:</h2>
+      <p>{{ bio }}</p>
+      <hr/>
+      <h2>Writer on social media</h2>
+      <p>
+        <span v-if="socials.facebook">
+          <a :href="socials.facebook">Facebook</a>
+        </span> - 
+        <span v-if="socials.instagram">
+          <a :href="socials.instagram">Instagram</a>
+        </span> - 
+        <span v-if="socials.twitter">
+          <a :href="socials.twitter">Twitter</a>
+        </span> - 
+        <span v-if="socials.tiktok">
+          <a :href="socials.tiktok">Tiktok</a>
+        </span>
+      </p>
+    </div>
+
     <hr/>
+
     <PreviewContainer
       header="Writer's recipes"
-      :custom-url="null"
+      :custom-url="customUrl"
     />
   </div>
 </template>
 
 <script>
-import WriterDetails from "@/components/WriterDetails.vue"
 import PreviewContainer from "@/components/PreviewContainer.vue"
 
 export default {
   name: "WriterPage",
   components: {
-    WriterDetails,
     PreviewContainer
   },
   watch: {
@@ -31,7 +49,19 @@ export default {
   data() {
     return {
       id: this.$route.params.id,
+      name: '',
+      badge: false,
+      bio: '',
+      socials: {}
     }
+  },
+  async fetch() {
+    let apiURL = `${this.$config.apiBaseURL}/writer.php?friendly_id=${this.$route.params.id}`;
+    let apiResponse = await this.$http.$get(apiURL);
+    this.name = apiResponse.name
+    this.bio = apiResponse.long_bio
+    this.socials = apiResponse.socials
+    this.badge = apiResponse.badge
   },
   computed: {
     customUrl() {
