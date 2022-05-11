@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- TODO merge details component with this page as its not used anywhere else??? -->
     <RecipeDetails
       :id="id"
     />
@@ -32,7 +33,9 @@ export default {
     customUrl() {
       const base = this.$config.apiBaseURL
       const count = 3
-      return `${base}/more.php?current=${this.id}&count=${count}`
+      // `${this.$config.apiBaseURL}/more.php?count=${this.$props.count}`
+      // return `${base}/more.php?current=${this.id}&count=${count}`
+      return `${base}/more.php?count=${count}`
     }
   }
 }

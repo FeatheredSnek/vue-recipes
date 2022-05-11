@@ -28,32 +28,29 @@
 <script>
 export default {
   name: "WriterDetails",
+  data() {
+    return {
+      name: '',
+      longBio: '',
+      badge: false,
+      socials: {}
+    }
+  },
+  async fetch() {
+    // TODO this kinda repeats small preview with lng bio but wcyd
+    let apiURL = `${this.$config.apiBaseURL}/writer.php?friendly_id=${this.$props.id}`;
+    let apiResponse = await this.$http.$get(apiURL);
+    this.name = apiResponse.name
+    this.longBio = apiResponse.long_bio
+    this.socials = apiResponse.socials
+    this.badge = apiResponse.badge
+  },
   props: {
-    name: {
+    id: {
       type: String,
       required: true
-    },
-    bio: {
-      type: String,
-      required: true
-    },
-    badge: {
-      type: Boolean,
-      required: false
-    },
-    socials: {
-      type: Object,
-      required: true,
-      validator (value) {
-        return (
-          Object.hasOwn(value, 'facebook') 
-          && Object.hasOwn(value, 'instagram') 
-          && Object.hasOwn(value, 'twitter') 
-          && Object.hasOwn(value, 'tiktok')
-        )
-      },
-    },
-  }
+    }
+  },
 }
 </script>
 
