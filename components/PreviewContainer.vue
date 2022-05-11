@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>{{ header }}  -- {{ ispies }}</h2>
+    <h2>{{ header }}</h2>
     <RecipeSmallPreview
       v-for="recipe in recipes"
       :key="recipe.friendly_id"
