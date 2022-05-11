@@ -25,26 +25,27 @@ export default {
     }
   },
   async fetch() {
-    const apiURL = this.$props.exclude ? 
-      `${this.$config.apiBaseURL}/more.php?current=${this.$props.count}&count=${this.$props.count}` :
-      `${this.$config.apiBaseURL}/more.php?count=${this.$props.count}`
+    let apiURL = this.$props.customUrl ? 
+      `${this.$config.apiBaseURL}/more.php?count=${this.$props.count}` :
+      this.$props.customUrl
     let apiResponse = await this.$http.$get(apiURL)
     this.recipes = apiResponse
   },
   props: {
-    count: {
-      type: Number,
-      required: true
-    },
-    exclude: {
-      type: String,
-      required: false,
-      default: ''
-    },
     header: {
       type: String,
       required: false,
       default: 'More recipes'
+    },
+    count: {
+      type: Number,
+      required: false,
+      default: 3
+    },
+    customUrl: {
+      type: String,
+      required: false,
+      default: ''
     }
   }
 }

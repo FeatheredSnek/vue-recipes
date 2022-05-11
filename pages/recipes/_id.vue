@@ -4,9 +4,8 @@
       :id="id"
     />
     <PreviewContainer
-      :count="3"
-      :exclude="id"
-      header="Some more to try"
+      header="Some other recipes to try"
+      :custom-url="customUrl"
     />
   </div>
 </template>
@@ -29,6 +28,13 @@ export default {
       id: this.$route.params.id,
     };
   },
+  computed: {
+    customUrl() {
+      const base = this.$config.apiBaseURL
+      const count = 3
+      return `${base}/more.php?current=${this.id}&count=${count}`
+    }
+  }
 }
 </script>
 
