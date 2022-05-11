@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>{{ header }}</h2>
+    <h2>{{ header }}  -- {{ ispies }}</h2>
     <RecipeSmallPreview
       v-for="recipe in recipes"
       :key="recipe.friendly_id"
@@ -25,9 +25,10 @@ export default {
     }
   },
   async fetch() {
-    let apiURL = this.$props.customUrl ? 
-      `${this.$config.apiBaseURL}/more.php?count=${this.$props.count}` :
-      this.$props.customUrl
+    let apiURL = `${this.$config.apiBaseURL}/more.php?count=${this.$props.count}`
+    if (this.$props.customUrl.length) {
+      apiURL = this.$props.customUrl
+    }
     let apiResponse = await this.$http.$get(apiURL)
     this.recipes = apiResponse
   },
