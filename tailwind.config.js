@@ -8,10 +8,15 @@ module.exports = {
     "./nuxt.config.{js,ts}",
   ],
   theme: {
-    extend: {},
-    colors: {
-      
-    }
+    extend: {
+      colors: {
+        "blue": "#FF0000",
+        "sky-500": "#00ff00"
+      },
+      fontFamily: {
+        "sans": "Mukta, system-ui, sans-serif"
+      }
+    },
   },
   plugins: [],
 }
