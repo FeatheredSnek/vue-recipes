@@ -6,6 +6,7 @@
       </nuxt-link>
     </h3>
     <p>{{ blurb }}</p>
+    <img :src="$imagepath('recipeth', image)"/>
   </div>
 </template>
 
@@ -25,6 +26,10 @@
         type: String,
         required: true
       },
+      image: {
+        type: String,
+        required: true
+      }
     }
   }
 </script>

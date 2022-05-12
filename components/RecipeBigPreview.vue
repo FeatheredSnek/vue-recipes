@@ -13,6 +13,7 @@
       <span v-if="flags.maindish">Suitable for a main dish</span> - 
       <span v-if="flags.hot">Can be served hot</span>
     </div>
+    <img :src="$imagepath('recipe', image)"/>
     <p>{{ blurb }}</p>
   </div>
 </template>
@@ -23,6 +24,7 @@
     data() {
       return {
         name: '',
+        image: '',
         blurb: '',
         flags: {},
         friendlyId: ''
@@ -36,6 +38,7 @@
       let apiResponse = await this.$http.$get(apiURL);
       this.name = apiResponse.name
       this.blurb = apiResponse.blurb
+      this.image = apiResponse.image
       this.flags = apiResponse.flags
       this.friendlyId = apiResponse.friendly_id
     },
@@ -46,40 +49,6 @@
         default: ''
       }
     }
-    // props: {
-    //   name: {
-    //     type: String,
-    //     required: true
-    //   },
-    //   blurb: {
-    //     type: String,
-    //     required: true
-    //   },
-    //   friendlyId: {
-    //     type: String,
-    //     required: true
-    //   },
-    //   flags: {
-    //     default (rawProps) {
-    //       // default function receives the raw props object as argument
-    //       return {
-    //         vegan: false,
-    //         vegetarian: false,
-    //         hot: false,
-    //         maindish: false
-    //       }
-    //     },
-    //     validator (value) {
-    //       return (
-    //         Object.hasOwn(value, 'vegan') 
-    //         && Object.hasOwn(value, 'vegetarian') 
-    //         && Object.hasOwn(value, 'hot') 
-    //         && Object.hasOwn(value, 'maindish')
-    //       )
-    //     },
-    //     required: true
-    //   },
-    // }
   }
 </script>
 

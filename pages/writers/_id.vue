@@ -7,6 +7,7 @@
         <span v-if="badge"> ★ </span>
       </h1>
       <h2>About the writer:</h2>
+      <img :src="$imagepath('writer', image)"/>
       <p>{{ bio }}</p>
       <hr/>
       <h2>Writer on social media</h2>
@@ -52,6 +53,7 @@ export default {
       name: '',
       badge: false,
       bio: '',
+      image: '',
       socials: {}
     }
   },
@@ -60,6 +62,7 @@ export default {
     let apiResponse = await this.$http.$get(apiURL);
     this.name = apiResponse.name
     this.bio = apiResponse.long_bio
+    this.image = apiResponse.image
     this.socials = apiResponse.socials
     this.badge = apiResponse.badge
   },

@@ -1,10 +1,12 @@
 <template>
+  <!-- TODO fetch state messages -->
   <div>
     <h2>{{ header }}</h2>
     <RecipeSmallPreview
       v-for="recipe in recipes"
       :key="recipe.friendly_id"
       :name="recipe.name"
+      :image="recipe.image"
       :blurb="recipe.blurb"
       :friendly-id="recipe.friendly_id"
     />

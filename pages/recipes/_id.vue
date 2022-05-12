@@ -9,6 +9,7 @@
         <span v-if="recipeData.flags.maindish">Suitable for a main dish</span> - 
         <span v-if="recipeData.flags.hot">Can be served hot</span>
       </div>
+      <img :src="$imagepath('recipe', recipeData.image)"/>
       <hr/>
       <h2>Ingredients:</h2>
       <ul>
@@ -68,6 +69,7 @@ export default {
         flags: {},
         ingredients: '',
         instructions: '',
+        image: '',
         prepTime: 0,
         servings: 0,
         writerId: ''
@@ -84,6 +86,7 @@ export default {
     this.recipeData.instructions = apiResponse.instructions
     this.recipeData.prepTime = apiResponse.prep_time
     this.recipeData.servings = apiResponse.servings
+    this.recipeData.image = apiResponse.image
     this.recipeData.writerId = apiResponse.writer_friendly_id
   },
   computed: {

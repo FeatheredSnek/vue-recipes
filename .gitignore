@@ -1,3 +1,6 @@
+# static photos that in real usage would be somewhere on cdn
+/static/images
+
 # Created by .ignore support plugin (hsz.mobi)
 ### Node template
 # Logs

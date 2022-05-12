@@ -22,4 +22,8 @@ a {
 nuxt-link {
   text-decoration: underline;
 }
+img {
+  width:100px;
+  height:100px;
+}
 </style>

@@ -9,6 +9,7 @@
       </span>
       <span v-if="badge"> ★ </span>
     </h3>
+    <img :src="$imagepath('writerth', image)"/>
     <p>{{ shortBio }}</p>
     <p>
       <span v-if="socials.facebook">
@@ -34,6 +35,7 @@
       return {
         name: '',
         shortBio: '',
+        image: '',
         socials: {},
         badge: false
       }
@@ -50,6 +52,7 @@
       this.name = apiResponse.name
       this.shortBio = apiResponse.short_bio
       this.socials = apiResponse.socials
+      this.image = apiResponse.image
       this.badge = apiResponse.badge
     }
   }
