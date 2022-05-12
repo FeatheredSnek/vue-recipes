@@ -1,7 +1,18 @@
 <template>
-  <!-- TODO fetch state messages -->
   <div>
-    <div>
+    <div 
+      v-if="$fetchState.pending"
+      class="loading"
+    >
+      Loading data
+    </div>
+    <div 
+      v-else-if="$fetchState.error"
+      class="error"
+    >
+      Data loading error
+    </div>
+    <div v-else>
       <h1>{{ recipeData.name }}</h1>
       <div>
         <span v-if="recipeData.flags.vegan">Vegan</span> - 

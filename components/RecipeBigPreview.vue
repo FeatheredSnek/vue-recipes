@@ -1,20 +1,36 @@
 <template>
-  <!-- TODO fetch state messages -->
-  <div class="featured">
-    <h2>
-      <nuxt-link :to="{name: 'recipes-id', params: {id: friendlyId}}">
-        {{ name }}
-      </nuxt-link>
-    </h2>
-    <!-- TODO recipe flags as component -->
-    <div>
-      <span v-if="flags.vegan">Vegan</span> - 
-      <span v-if="flags.vegetarian">Vegetarian</span> - 
-      <span v-if="flags.maindish">Suitable for a main dish</span> - 
-      <span v-if="flags.hot">Can be served hot</span>
+  <div>
+    <div 
+      v-if="$fetchState.pending"
+      class="loading"
+    >
+      Loading data
     </div>
-    <img :src="$imagepath('recipe', image)"/>
-    <p>{{ blurb }}</p>
+    <div 
+      v-else-if="$fetchState.error"
+      class="error"
+    >
+      Data loading error
+    </div>
+    <div 
+      v-else
+      class="featured"
+    >
+      <h2>
+        <nuxt-link :to="{name: 'recipes-id', params: {id: friendlyId}}">
+          {{ name }}
+        </nuxt-link>
+      </h2>
+      <!-- TODO recipe flags as component -->
+      <div>
+        <span v-if="flags.vegan">Vegan</span> - 
+        <span v-if="flags.vegetarian">Vegetarian</span> - 
+        <span v-if="flags.maindish">Suitable for a main dish</span> - 
+        <span v-if="flags.hot">Can be served hot</span>
+      </div>
+      <img :src="$imagepath('recipe', image)"/>
+      <p>{{ blurb }}</p>
+    </div>
   </div>
 </template>
 
