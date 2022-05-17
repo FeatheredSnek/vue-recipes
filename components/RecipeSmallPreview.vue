@@ -1,18 +1,37 @@
 <template>
-  <div class="recipe">
-    <h3>
-      <nuxt-link :to="{name: 'recipes-id', params: {id: friendlyId}}">
-        {{ name }}
-      </nuxt-link>
-    </h3>
-    <p>{{ blurb }}</p>
-    <img :src="$imagepath('recipeth', image)"/>
-  </div>
+  <nuxt-link 
+    :to="{name: 'recipes-id', params: {id: friendlyId}}"
+    class="block max-w-md w-full mx-auto bg-white rounded-xl mb-4 md:m-0 overflow-hidden md:max-w-7xl border border-gray-200 shadow-xl shadow-gray-100"
+  >
+    <div class="">
+      <div>
+        <div class="relative w-full">
+          <AppFlags :flags="flags"/>
+        </div>
+        <img 
+          class="h-48 w-full object-cover" 
+          :src="$imagepath('recipeth', image)"
+          alt="Man looking at item at a store"
+        >
+      </div>
+      <div class="p-6">
+        <p class="text-2xl leading-tight font-bold text-gray-600">{{ name }}</p>
+        <p v-if="writer" class="text-lg text-lime-500 ">
+          by <span class="font-bold">{{ writer }}</span>
+        </p>
+      </div>
+    </div>
+  </nuxt-link>
 </template>
 
 <script>
+  import AppFlags from "@/components/AppFlags.vue"
+
   export default {
     name: "RecipeSmallPreview",
+    components: {
+      AppFlags
+    },
     props: {
       name: {
         type: String,
@@ -29,14 +48,19 @@
       image: {
         type: String,
         required: true
+      },
+      writer: {
+        type: String,
+        required: false
+      },
+      flags: {
+        type: Object,
+        required: true
       }
     }
   }
 </script>
 
 <style scoped>
-.recipe {
-  background-color: gold;
-  border: 1px solid brown;
-}
+
 </style>

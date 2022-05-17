@@ -21,7 +21,7 @@
             <!-- recipe name -->
             <div class="flex justify-between items-center w-full">
               <h1 class="text-4xl md:text-5xl leading-tight font-bold text-gray-600 w-full lg:w-2/3">
-                {{ recipeData.name }}
+                {{ recipeData.name }} -- {{ this.$route.params.id }}
               </h1>
               <div class="relative min-h-8 h-8 w-1/3 hidden lg:block">
                 <AppFlags :flags="recipeData.flags" no-pad/>
@@ -122,7 +122,7 @@
       />
     </div>
     
-    <AppSeparator/>
+    <hr />
     
     <PreviewContainer
       header="Some other recipes to try"
@@ -140,7 +140,7 @@ import AppActionButton from "@/components/AppActionButton.vue"
 import RecipeIngredientsList from "@/components/RecipeIngredientsList.vue"
 
 export default {
-  name: "RecipePage",
+  name: "RecipePagee",
   components: {
     WriterSmallPreview,
     PreviewContainer,
