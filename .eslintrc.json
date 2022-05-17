@@ -2,7 +2,7 @@
     "root": true,
     "extends": [
         "eslint:recommended",
-        "plugin:vue/strongly-recommended",
+        "plugin:vue/essential",
         "plugin:nuxt/base"
     ],
     "parserOptions": {
@@ -13,11 +13,6 @@
         "vue"
     ],
     "rules": {
-        "vue/multi-word-component-names": "off",
-        "vue/require-v-for-key": "off",
-        "vue/html-self-closing": "off",
-        "vue/html-closing-bracket-spacing": "off",
-        "vue/require-default-prop": "off",
-        "no-unused-vars": "off"
+
     }
 }

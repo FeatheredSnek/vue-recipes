@@ -10,13 +10,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "blue": "#FF0000",
-        "sky-500": "#00ff00"
+        "white": "#ffffff",
+        "dark": "#4b5563"
       },
       fontFamily: {
         "sans": "Mukta, system-ui, sans-serif"
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }
