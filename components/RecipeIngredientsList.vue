@@ -1,5 +1,5 @@
 <template>
-  <div class="p-6 block min-w-fit w-full h-fit bg-white rounded-xl overflow-hidden border border-gray-200">
+  <div class="p-6 block w-full h-fit bg-white rounded-xl overflow-hidden border border-gray-200">
     <p class="text-2xl mb-3 font-bold text-gray-600">
       Ingredients
     </p>

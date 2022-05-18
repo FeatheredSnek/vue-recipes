@@ -108,12 +108,16 @@
         </div>
       </div>
       <AppSeparator/>
-      <div class="flex justify-start gap-8 lg:gap-16 flex-col sm:flex-row">
-        <RecipeIngredientsList :ingredients="recipeData.ingredients"/>
-        <ol class="text-lg lg:text-xl list-decimal list-inside">
-          <li class="mb-1 lg:mb-2 leading-normal">{{ recipeData.instructions }}</li>
-          <li class="mb-1 lg:mb-2 leading-normal">{{ recipeData.instructions }}</li>
-        </ol>
+      <div class="flex w-full gap-8 lg:gap-16 flex-col sm:flex-row">
+        <div class="sm:w-1/3 lg:w-1/4 w-full">
+          <RecipeIngredientsList :ingredients="recipeData.ingredients"/>
+        </div>
+        <div class="sm:w-2/3 lg:w-3/4 w-full">
+          <ol class="text-lg lg:text-xl list-decimal list-inside">
+            <li class="mb-1 lg:mb-2 leading-normal">{{ recipeData.instructions }}</li>
+            <li class="mb-1 lg:mb-2 leading-normal">{{ recipeData.instructions }}</li>
+          </ol>
+        </div>
       </div>
       <AppSeparator/>
       <WriterSmallPreview
