@@ -3,12 +3,31 @@
     <!-- <div class="welcome">
       Hero welcome
     </div> -->
-    <div class="flex w-full">
+    <div 
+      v-if="$fetchState.pending"
+      class="loading"
+    >
+      Loading data
+    </div>
+    <div 
+      v-else-if="$fetchState.error"
+      class="error"
+    >
+      Data loading error
+    </div>
+    <div v-else class="flex w-full">
       <div class="md:w-2/3 w-full">
         <h2 class="font-bold text-3xl text-gray-600 pb-4">
           Today's featured
         </h2>
-        <RecipeBigPreview/>
+        <RecipeBigPreview
+          :name="featured.name"
+          :image="featured.image"
+          :blurb="featured.blurb"
+          :writer="featured.writer"
+          :flags="featured.flags"
+          :friendly-id="featured.friendly_id"
+        />
       </div>
       <div class="hidden md:block">
         Popular this week
@@ -19,7 +38,6 @@
 
       </div>
     </div>
-    <!-- <div class="h-20">&nbsp;</div> -->
     
     <AppSeparator/>
 
@@ -45,7 +63,6 @@
       </div>
     </div>
 
-
   </div>
 </template>
 
@@ -65,7 +82,18 @@ export default {
   },
   data() {
     return {
+      featured: {}
     }
-  }
+  },
+  async fetch() {
+    let apiURL = `${this.$config.apiBaseURL}/featured.php`
+    let apiResponse = await this.$http.$get(apiURL);
+    this.featured.name = apiResponse.name
+    this.featured.blurb = apiResponse.blurb
+    this.featured.image = apiResponse.image
+    this.featured.flags = apiResponse.flags
+    this.featured.friendlyId = apiResponse.friendly_id
+    this.featured.writer = apiResponse.writer
+  },
 }
 </script>
