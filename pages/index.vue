@@ -26,7 +26,7 @@
           :blurb="featured.blurb"
           :writer="featured.writer"
           :flags="featured.flags"
-          :friendly-id="featured.friendly_id"
+          :friendly-id="featured.friendlyId"
         />
       </div>
       <div class="hidden md:block">
