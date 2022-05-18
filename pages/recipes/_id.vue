@@ -43,9 +43,9 @@
             <p class="text-lg md:text-xl lg:text-2xl leading-normal text-gray-600 mb-4 sm:mb-6">
               {{ recipeData.blurb }}
             </p>
-            <div class="mb-8">
+            <div class="mb-8 text-lg md:text-xl lg:text-2xl ">
               <!-- preptime -->
-              <div class="flex items-center text-l md:text-xl mb-2 text-gray-600">
+              <div class="flex items-center mb-2">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
@@ -58,7 +58,7 @@
                 </p>
               </div>
               <!-- servings -->
-              <div class="flex items-center text-l md:text-xl text-gray-600">
+              <div class="flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>
@@ -154,7 +154,6 @@ export default {
   },
   data() {
     return {
-      pies: 'john_cook',
       id: this.$route.params.id,
       recipeData: {
         name: '',
