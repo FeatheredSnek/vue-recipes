@@ -3,7 +3,7 @@
     <nav class="fixed w-full h-16 md:h-20 bg-white border-b border-b-gray-200 z-10">
 
       <!-- mobile header with openable search-->
-      <div class="md:hidden max-w-7xl mx-auto px-2 flex items-center justify-between h-16 text-gray-600">
+      <div class="md:hidden max-w-7xl mx-auto px-5 flex items-center justify-between h-16 text-gray-600">
         <button @click="mobileOpen()" class="w-12 h-12 flex items-center justify-center rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-lime-500">
           <svg v-if="!mobileOpened" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
@@ -31,7 +31,7 @@
       </div>
 
       <!-- desktop (lg+) header with menu -->
-      <div class="hidden md:flex max-w-7xl mx-auto px-8 justify-between items-center h-20 text-gray-600">
+      <div class="hidden md:flex max-w-7xl mx-auto px-5 justify-between items-center h-20 text-gray-600">
         <nuxt-link 
           :to="{ name: 'index' }" 
           class="font-bold h-20 px-6 rounded-lg flex items-center justify-center"
