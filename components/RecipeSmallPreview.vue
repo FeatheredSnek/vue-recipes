@@ -1,27 +1,28 @@
 <template>
-  <nuxt-link 
-    :to="{name: 'recipes-id', params: {id: friendlyId}}"
-    class="block max-w-md w-full mx-auto bg-white rounded-xl mb-4 md:m-0 overflow-hidden md:max-w-7xl border border-gray-200 shadow-xl shadow-gray-100"
+  <div 
+    @click="navigate()" 
+    tabindex=0 
+    class="block max-w-md w-full mx-auto bg-white rounded-xl mb-4 md:m-0 overflow-hidden md:max-w-7xl border border-gray-200 shadow-xl shadow-gray-100 cursor-pointer"
   >
-    <div class="">
-      <div>
-        <div class="relative w-full">
-          <AppFlags :flags="flags"/>
-        </div>
-        <img 
-          class="h-48 w-full object-cover" 
-          :src="$imagepath('recipeth', image)"
-          alt="Man looking at item at a store"
-        >
+    <!-- image with flag icons -->
+    <div>
+      <div class="relative w-full">
+        <AppFlags :flags="flags"/>
       </div>
-      <div class="p-6">
-        <p class="text-2xl leading-tight font-bold text-gray-600">{{ name }}</p>
-        <p v-if="writer" class="text-lg text-lime-500 ">
-          by <span class="font-bold">{{ writer }}</span>
-        </p>
-      </div>
+      <img 
+        class="h-48 w-full object-cover" 
+        :src="$imagepath('recipeth', image)"
+        alt="Man looking at item at a store"
+      >
     </div>
-  </nuxt-link>
+    <!-- text data: name and writer name (if exists) -->
+    <div class="p-6">
+      <p class="text-2xl leading-tight font-bold text-gray-600">{{ name }}</p>
+      <p v-if="writer" class="text-lg text-lime-500 ">
+        by <span class="font-bold">{{ writer }}</span>
+      </p>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -31,6 +32,16 @@
     name: "RecipeSmallPreview",
     components: {
       AppFlags
+    },
+    methods: {
+      navigate() {
+        this.$router.push(
+          {
+            name: 'recipes-id', 
+            params: {id: this.$props.friendlyId}
+          }
+        )
+      }
     },
     props: {
       name: {
