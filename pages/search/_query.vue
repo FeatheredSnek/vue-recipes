@@ -7,11 +7,10 @@
       @submit.prevent="advancedSearch()"
       class="p-6 block w-full h-fit bg-white rounded-xl overflow-hidden border border-gray-200"
       >
-        
         <p class="text-2xl mb-3 font-bold text-gray-600">
           Advanced search
         </p>
-        
+        <!-- main search input -->
         <div class="mb-3">
           <label for="query" class="text-lg lg:text-xl">Search for</label>
           <input 
@@ -20,9 +19,9 @@
             v-model="params.query"
             class="w-full h-12 py-1 pl-4 pr-8 border-gray-300 focus:ring-lime-500 focus:border-lime-500 rounded-lg"
             placeholder="e.g. caesar"
+            ref="queryinput"
           />
         </div>
-
         <ul class="mb-3">
           <li class="text-lg lg:text-xl mb-1 lg:mb-2 flex items-center">
             <input 
@@ -61,7 +60,6 @@
             <label for="hot">Served hot</label>
           </li>
         </ul>
-
         <!-- prep time slider -->
         <div class="mb-3">
           <label for="time" class="text-lg lg:text-xl">
@@ -81,7 +79,6 @@
             :value="updateTimeSliderValue()"
           />
         </div>
-
         <AppActionButton>
           <template #icon>
             <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
@@ -90,10 +87,8 @@
             Search
           </template>
         </AppActionButton>
-
       </form>
     </div>
-
     <!-- search results -->
     <div class="sm:w-2/3 lg:w-2/3 w-full">
       <div v-if="$fetchState.pending"
@@ -126,7 +121,6 @@
         />
       </div>
     </div>
-
   </div>
 </template>
 
@@ -169,6 +163,14 @@ export default {
   },
   methods: {
     advancedSearch() {
+      // validate search term
+      const regex = /[A-Za-z0-9]/
+      const minlength = 2
+      if (!(this.params.query.match(regex) && this.params.query.length >= minlength)) {
+        this.$refs.queryinput.focus()
+        return false
+      }
+      // prepare route with query and push
       const query = {}
       if (this.params.vegan) query.vegan = true
       if (this.params.vegetarian) query.vegetarian = true
