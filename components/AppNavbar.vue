@@ -58,7 +58,7 @@
           <AppNavbarLink route-name="index">
             Browse
           </AppNavbarLink>
-          <AppNavbarLink route-name="index">
+          <AppNavbarLink route-name="about">
             About us
           </AppNavbarLink>
           <SearchBarTop :focused="searchFocus" />
@@ -74,7 +74,7 @@
           <MenuItem route-name="index">
             Browse
           </MenuItem>
-          <MenuItem route-name="index">
+          <MenuItem route-name="about">
             About us
           </MenuItem>
         </div>
