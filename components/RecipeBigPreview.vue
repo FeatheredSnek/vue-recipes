@@ -2,7 +2,7 @@
   <div 
     @click="navigate()" 
     tabindex=0 
-    class="block md:flex md:max-h-96 max-w-md mx-auto bg-white rounded-xl overflow-hidden md:max-w-7xl border border-gray-200 shadow-xl shadow-gray-100 cursor-pointer"
+    class="focus-hack block md:flex md:max-h-96 max-w-md mx-auto bg-white rounded-xl overflow-hidden md:max-w-7xl border border-gray-200 shadow-xl shadow-gray-100 cursor-pointer"
   >
     <!-- image with flag icons -->
     <div class="lg:w-3/5 md:w-1/2">
