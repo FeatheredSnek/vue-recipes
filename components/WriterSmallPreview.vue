@@ -16,7 +16,7 @@
       v-else
       class="featured"
     >
-      <h2 class="font-bold text-3xl text-gray-600 pb-4">
+      <h2 v-if="!noheader" class="font-bold text-3xl text-gray-600 pb-4">
         About the writer
       </h2>
       <div class="w-full flex sm:flex-row flex-col items-center gap-6 md:gap-10 py-8 px-6 md:px-12 border border-gray-200 rounded-xl">
@@ -78,6 +78,10 @@
       id: {
         type: String,
         required: true
+      },
+      noheader: {
+        type: Boolean,
+        required: false
       }
     },
     async fetch() {
