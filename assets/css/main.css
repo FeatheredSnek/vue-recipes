@@ -19,10 +19,10 @@
   }
   /* required for custom colored tab-focus rings */
   .focus-hack {
-    @apply focus-visible:outline-offset-[-9999px] focus-visible:ring-2 focus-visible:ring-lime-500;
+    @apply focus:outline-offset-[-9999px] focus:ring-2 focus:ring-lime-500;
   }
   a, button {
-    @apply focus-visible:outline-offset-[-9999px] focus-visible:ring-2 focus-visible:ring-lime-500;
+    @apply focus:outline-offset-[-9999px] focus:ring-2 focus:ring-lime-500;
   }
 
 /* CUSTOM RANGE FUNTIME */
