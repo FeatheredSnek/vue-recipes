@@ -14,7 +14,6 @@
         </svg>
       </button>
     </div>
-    {{ query }}
   </form>
 </template>
 
