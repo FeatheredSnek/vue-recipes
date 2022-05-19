@@ -1,4 +1,3 @@
-
 <template>
   <div>
     <div 
@@ -31,20 +30,20 @@
         </nuxt-link>
         <!-- name + blurb -->
         <div class="shrink-1">
-          <nuxt-link :to="{name: 'writers-id', params: {id}}">
-            <p class="text-2xl md:text-4xl leading-tight font-bold text-gray-600">
-              <span>{{ name }}</span>
-              <svg xmlns="http://www.w3.org/2000/svg" v-if="badge" class="h-6 w-6 md:h-8 md:w-8 relative bottom-[2px] text-lime-500 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-              </svg>
-            </p>
-          </nuxt-link>
+          <p class="text-2xl md:text-4xl leading-tight font-bold text-gray-600">
+            <nuxt-link class="w-full" :to="{name: 'writers-id', params: {id}}">
+              {{ name }}
+            </nuxt-link>
+            <svg xmlns="http://www.w3.org/2000/svg" v-if="badge" class="h-6 w-6 md:h-8 md:w-8 relative bottom-[2px] text-lime-500 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+            </svg>
+          </p>
           <p class="mt-2 mb-1 md:text-lg text-slate-500 leading-snug lg:leading-relaxed">
             {{ shortBio }}
           </p>
         </div>
         <!-- socials -->
-        <div class="sm:h-24 shrink-0 flex overflow-hidden items-center justify-between gap-8 sm:gap-6 pt-6 sm:pt-0 sm:pl-6 md:pl-12 border-t sm:border-t-0 sm:border-l border-gray-200">
+        <div class="sm:h-24 shrink-0 flex overflow-visible items-center justify-between gap-8 sm:gap-6 pt-6 sm:pt-0 sm:pl-6 md:pl-12 border-t sm:border-t-0 sm:border-l border-gray-200">
           <a v-if="socials.facebook" :href="socials.facebook" target="_blank">
             <img class="h-6 w-6" src="@/assets/icons/facebook.svg"/>
           </a>
@@ -92,9 +91,3 @@
     }
   }
 </script>
-
-<style scoped>
-.writer {
-  background-color: cornsilk;
-}
-</style>
