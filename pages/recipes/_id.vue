@@ -153,6 +153,7 @@ export default {
     AppActionButton,
     RecipeIngredientsList
   },
+  middleware: 'validateid',
   watch: {
     '$route.params.id': '$fetch'
   },

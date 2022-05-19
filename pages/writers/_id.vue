@@ -99,6 +99,7 @@ export default {
     PreviewContainer,
     AppSeparator
   },
+  middleware: 'validateid',
   watch: {
     '$route.params.id': '$fetch'
   },
