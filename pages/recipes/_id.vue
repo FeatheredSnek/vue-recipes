@@ -73,12 +73,28 @@
             <div class="w-full flex">         
               <!-- button fav -->
               <div class="w-1/2 sm:w-36 md:w-44 mr-4">
-                <AppActionButton @click="favorite()">
+                <AppActionButton 
+                  v-if="!isFavorite"
+                  @click="addFavorite()"
+                  :button-disabled="!storageEnabled || !addFavsAvailable"
+                >
                   <template #icon>
                     <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
                   </template>
                   <template #text>
                     Add favorite
+                  </template>
+                </AppActionButton>
+                <AppActionButton 
+                  v-else
+                  @click="removeFavorite()"
+                  :button-disabled="!storageEnabled"
+                >
+                  <template #icon>
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+                  </template>
+                  <template #text>
+                    Remove favorite
                   </template>
                 </AppActionButton>
               </div>
@@ -157,6 +173,11 @@ export default {
   watch: {
     '$route.params.id': '$fetch'
   },
+  mounted() {
+    this.storageEnabled = this.localStorageAvailable()
+    this.addFavsAvailable = this.favsAvailable()
+    this.isFavorite = this.checkIfFavorite()
+  },
   data() {
     return {
       id: this.$route.params.id,
@@ -172,6 +193,9 @@ export default {
         writer: '',
         writerId: ''
       },
+      storageEnabled: true,
+      addFavsAvailable: true,
+      isFavorite: false
     };
   },
   async fetch() {
@@ -202,12 +226,52 @@ export default {
     }
   },
   methods: {
-    favorite() {
-      console.log('fav');
+    addFavorite() {
+      const currentFavs = localStorage.getItem('favorites')
+      localStorage.setItem('favorites', `${currentFavs},${this.$route.params.id}`)
+      this.isFavorite = true
+    },
+    removeFavorite() {
+      const currentFavsArr = localStorage.getItem('favorites').split(',')
+      const currentFavIndex = currentFavsArr.indexOf(this.$route.params.id)
+      currentFavsArr.splice(currentFavIndex, 1)
+      localStorage.setItem('favorites', currentFavsArr.toString())
+      this.isFavorite = false
     },
     share() {
       console.log('share');
-    }
+    },
+    checkIfFavorite() {
+      if (process.client) { //eslint-disable-line
+        return localStorage.getItem('favorites')
+          .split(',')
+          .includes(this.$route.params.id)
+      }
+    },
+    favsAvailable() {
+      if (process.client) { //eslint-disable-line
+        if (localStorage.length > 18) return false
+        return true
+      }
+    },
+    localStorageAvailable() {
+      if (process.client) { //eslint-disable-line
+        try {
+          var x = '__storage_test__';
+          localStorage.setItem(x, x);
+          localStorage.removeItem(x);
+          return true;
+        }
+        catch (e) {
+          return e instanceof DOMException && (
+            e.code === 22 ||
+            e.code === 1014 ||
+            e.name === 'QuotaExceededError' ||
+            e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+          (localStorage && localStorage.length !== 0);
+        }
+      }
+    },
   }
 }
 </script>
