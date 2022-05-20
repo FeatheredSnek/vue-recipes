@@ -15,7 +15,6 @@
     <div 
       v-else
     >
-      <!-- <div style="border:solid 1px black;width:500px;height:500px" class="rounded-lg bg-cyan-500 text-yellow">conetntsp</div> -->
       <h2 class="font-bold text-3xl text-gray-600 pb-4">
         {{ header }}
       </h2>
@@ -25,7 +24,6 @@
           :key="recipe.friendly_id"
           :name="recipe.name"
           :image="recipe.image"
-          :blurb="recipe.blurb"
           :writer="recipe.writer"
           :flags="recipe.flags"
           :friendly-id="recipe.friendly_id"
@@ -79,6 +77,6 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 
 </style>

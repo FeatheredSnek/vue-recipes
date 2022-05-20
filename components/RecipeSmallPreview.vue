@@ -49,10 +49,6 @@
         type: String,
         required: true
       },
-      blurb: {
-        type: String,
-        required: true
-      },
       friendlyId: {
         type: String,
         required: true
