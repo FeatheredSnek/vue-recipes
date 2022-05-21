@@ -243,6 +243,7 @@ export default {
     },
     checkIfFavorite() {
       if (process.client) { //eslint-disable-line
+        if (localStorage.getItem('favorites') === null) return false
         return localStorage.getItem('favorites')
           .split(',')
           .includes(this.$route.params.id)
