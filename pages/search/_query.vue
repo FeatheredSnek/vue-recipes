@@ -91,17 +91,9 @@
     </div>
     <!-- search results -->
     <div class="sm:w-2/3 lg:w-2/3 w-full">
-      <div v-if="$fetchState.pending"
-        class="loading"
-      >
-        Loading data
-      </div>
-      <div v-else-if="$fetchState.error"
-        class="error"
-      >
-        Data loading error
-      </div>
-      <div v-else-if="!results.length">
+      <AppFetchStateIndicator v-if="$fetchState.pending" indicates="loading"/>
+      <AppFetchStateIndicator v-else-if="$fetchState.error" indicates="error"/>
+      <div v-else-if="!results.length" class="w-full text-3xl font-bold text-center">
         No results found!
       </div>
       <div v-else>
@@ -127,12 +119,14 @@
 <script>
 import RecipeBigPreview from "@/components/RecipeBigPreview.vue"
 import AppActionButton from "@/components/AppActionButton.vue"
+import AppFetchStateIndicator from "@/components/AppFetchStateIndicator.vue"
 
 export default {
   name: 'SearchResultsPage',
   components: { 
     RecipeBigPreview,
-    AppActionButton
+    AppActionButton,
+    AppFetchStateIndicator,
   },
   watch: {
     '$route.params': '$fetch',

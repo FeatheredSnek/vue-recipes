@@ -19,16 +19,8 @@
       </div>
     </div>
     <AppSeparator/>
-    <div 
-      v-if="$fetchState.pending"
-      class="loading"
-    >
-    </div>
-    <div 
-      v-else-if="$fetchState.error"
-      class="error"
-    >
-    </div>
+    <AppFetchStateIndicator v-if="$fetchState.pending" indicates="loading"/>
+    <AppFetchStateIndicator v-else-if="$fetchState.error" indicates="error"/>
     <div v-else class="w-full flex flex-col items-center text-center px-2 py-6 sm:py-4">
       <h2 class="font-bold text-4xl text-gray-600 mb-8">
         Our brilliant writers
@@ -49,10 +41,12 @@
 <script>
 import AppSeparator from '@/components/AppSeparator.vue'
 import WriterSmallPreview from '@/components/WriterSmallPreview.vue'
+import AppFetchStateIndicator from "@/components/AppFetchStateIndicator.vue"
 
 export default {
   name: "AboutPage",
   components: {
+    AppFetchStateIndicator,
     AppSeparator,
     WriterSmallPreview
   },

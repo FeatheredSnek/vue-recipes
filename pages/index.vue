@@ -3,18 +3,8 @@
     <!-- <div class="welcome">
       Hero welcome
     </div> -->
-    <div 
-      v-if="$fetchState.pending"
-      class="loading"
-    >
-      Loading data
-    </div>
-    <div 
-      v-else-if="$fetchState.error"
-      class="error"
-    >
-      Data loading error
-    </div>
+    <AppFetchStateIndicator v-if="$fetchState.pending" indicates="loading"/>
+    <AppFetchStateIndicator v-else-if="$fetchState.error" indicates="error"/>
     <div v-else class="flex w-full">
       <div class="md:w-2/3 w-full">
         <h2 class="font-bold text-3xl text-gray-600 pb-4">
@@ -71,6 +61,7 @@ import RecipeBigPreview from "@/components/RecipeBigPreview.vue"
 import PreviewContainer from "@/components/PreviewContainer.vue"
 import SearchBarTop from "@/components/SearchBarTop.vue"
 import AppSeparator from "@/components/AppSeparator.vue"
+import AppFetchStateIndicator from "@/components/AppFetchStateIndicator.vue"
 
 export default {
   name: 'IndexPage',
@@ -78,7 +69,8 @@ export default {
     RecipeBigPreview,
     PreviewContainer,
     SearchBarTop,
-    AppSeparator
+    AppSeparator,
+    AppFetchStateIndicator,
   },
   data() {
     return {

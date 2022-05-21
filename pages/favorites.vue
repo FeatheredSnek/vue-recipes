@@ -1,15 +1,7 @@
 <template>
   <div>
-    <div v-if="$fetchState.pending"
-      class="loading"
-    >
-      Loading data
-    </div>
-    <div v-else-if="$fetchState.error"
-      class="error"
-    >
-      Data loading error
-    </div>
+    <AppFetchStateIndicator v-if="$fetchState.pending" indicates="loading"/>
+    <AppFetchStateIndicator v-else-if="$fetchState.error" indicates="error"/>
     <!-- search bar if no favs are found -->
     <div v-else-if="!favRecipes.length" class="w-full flex flex-col items-center text-center px-2 py-6 sm:py-4">
       <h2 class="font-bold text-4xl text-gray-600 pb-4">You don't have any favorites </h2>
@@ -53,13 +45,15 @@
 import RecipeSmallPreview from "@/components/RecipeSmallPreview.vue"
 import AppActionButton from "@/components/AppActionButton.vue"
 import SearchBarTop from "@/components/SearchBarTop.vue"
+import AppFetchStateIndicator from "@/components/AppFetchStateIndicator.vue"
 
 export default {
   name: "FavoritesPage",
   components: {
     RecipeSmallPreview,
     AppActionButton,
-    SearchBarTop
+    SearchBarTop,
+    AppFetchStateIndicator,
   },
   beforeMount() {
     this.storedFavs = this.getStoredFavs()

@@ -1,19 +1,8 @@
 <template>
   <div>
-    <div 
-      v-if="$fetchState.pending"
-      class="loading"
-    >
-      Loading data
-    </div>
-    <div 
-      v-else-if="$fetchState.error"
-      class="error"
-    >
-      Data loading error
-    </div>
+    <AppFetchStateIndicator v-if="$fetchState.pending" indicates="loading"/>
+    <AppFetchStateIndicator v-else-if="$fetchState.error" indicates="error"/>
     <div v-else>
-      
       <div class="w-full grid grid-cols-1 grid-rows-2 sm:grid-cols-2 sm:grid-rows-1  gap-8 lg:gap-16">
         <!-- info -->
         <div class="col-start-1 row-start-1 flex items-center">
@@ -92,12 +81,14 @@
 <script>
 import PreviewContainer from "@/components/PreviewContainer.vue"
 import AppSeparator from "@/components/AppSeparator.vue"
+import AppFetchStateIndicator from "@/components/AppFetchStateIndicator.vue"
 
 export default {
   name: "WriterPage",
   components: {
     PreviewContainer,
-    AppSeparator
+    AppSeparator,
+    AppFetchStateIndicator,
   },
   middleware: 'validateid',
   watch: {

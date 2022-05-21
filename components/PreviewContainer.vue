@@ -1,20 +1,8 @@
 <template>
   <div class="max-w-7xl mb-10">
-    <div 
-      v-if="$fetchState.pending"
-      class="loading"
-    >
-      Loading data
-    </div>
-    <div 
-      v-else-if="$fetchState.error"
-      class="error"
-    >
-      Data loading error
-    </div>
-    <div 
-      v-else
-    >
+    <AppFetchStateIndicator v-if="$fetchState.pending" indicates="loading"/>
+    <AppFetchStateIndicator v-else-if="$fetchState.error" indicates="error"/>
+    <div v-else>
       <h2 class="font-bold text-3xl text-gray-600 pb-4">
         {{ header }}
       </h2>
@@ -34,12 +22,14 @@
 </template>
 
 <script>
-import RecipeSmallPreview from '@/components/RecipeSmallPreview.vue'
+import RecipeSmallPreview from "@/components/RecipeSmallPreview.vue"
+import AppFetchStateIndicator from "@/components/AppFetchStateIndicator.vue"
 
 export default {
   name: "PreviewContainer",
   components: {
-    RecipeSmallPreview
+    RecipeSmallPreview,
+    AppFetchStateIndicator
   },
   data() {
     return {

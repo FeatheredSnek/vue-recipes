@@ -1,17 +1,7 @@
 <template>
   <div>
-    <div 
-      v-if="$fetchState.pending"
-      class="loading"
-    >
-      Loading data
-    </div>
-    <div 
-      v-else-if="$fetchState.error"
-      class="error"
-    >
-      Data loading error
-    </div>
+    <AppFetchStateIndicator v-if="$fetchState.pending" indicates="loading"/>
+    <AppFetchStateIndicator v-else-if="$fetchState.error" indicates="error"/>
     <div v-else>
       <!-- head -->
       <div class="w-full grid grid-cols-1 grid-rows-2 sm:grid-cols-2 sm:grid-rows-1 gap-8 lg:gap-16">
@@ -158,16 +148,18 @@ import AppFlags from "@/components/AppFlags.vue"
 import AppSeparator from "@/components/AppSeparator.vue"
 import AppActionButton from "@/components/AppActionButton.vue"
 import RecipeIngredientsList from "@/components/RecipeIngredientsList.vue"
+import AppFetchStateIndicator from "@/components/AppFetchStateIndicator.vue"
 
 export default {
   name: "RecipePage",
   components: {
+    AppSeparator,
+    AppActionButton,
+    AppFetchStateIndicator,
     WriterSmallPreview,
     PreviewContainer,
     AppFlags,
-    AppSeparator,
-    AppActionButton,
-    RecipeIngredientsList
+    RecipeIngredientsList,
   },
   middleware: 'validateid',
   watch: {

@@ -1,21 +1,8 @@
 <template>
   <div>
-    <div 
-      v-if="$fetchState.pending"
-      class="loading"
-    >
-      Loading data
-    </div>
-    <div 
-      v-else-if="$fetchState.error"
-      class="error"
-    >
-      Data loading error
-    </div>
-    <div 
-      v-else
-      class="featured"
-    >
+    <AppFetchStateIndicator v-if="$fetchState.pending" indicates="loading"/>
+    <AppFetchStateIndicator v-else-if="$fetchState.error" indicates="error"/>
+    <div v-else>
       <h2 v-if="!noheader" class="font-bold text-3xl text-gray-600 pb-4">
         About the writer
       </h2>
@@ -63,8 +50,13 @@
 </template>
 
 <script>
+  import AppFetchStateIndicator from "@/components/AppFetchStateIndicator.vue"
+
   export default {
     name: "WriterSmallPreview",
+    components: {
+      AppFetchStateIndicator
+    },
     data() {
       return {
         name: '',
