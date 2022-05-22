@@ -52,15 +52,15 @@
           <img src="../assets/icons/logo-full-3.svg" class="lg:block hidden h-10"/>
         </nuxt-link>
         <div class="h-full flex justify-between items-center place-items-end">
-          <NavbarLink route-name="index">
+          <NavbarLink route-name="favorites">
             Favorites
-          </NavbarLink>
-          <NavbarLink route-name="index">
-            Browse
           </NavbarLink>
           <NavbarLink route-name="about">
             About us
           </NavbarLink>
+          <a href="https://github.com/FeatheredSnek/vue-recipes/" target="_blank" class="hover:bg-gray-600 text-gray-600 hover:text-gray-100 font-bold w-32 h-12 px-6 rounded-lg flex items-center justify-center">
+            GitHub
+          </a>
           <SearchBar :focused="searchFocus" />
         </div>
       </div>
@@ -71,12 +71,12 @@
           <NavbarMobileLink route-name="index">
             Favorites
           </NavbarMobileLink>
-          <NavbarMobileLink route-name="index">
-            Browse
-          </NavbarMobileLink>
           <NavbarMobileLink route-name="about">
             About us
           </NavbarMobileLink>
+          <a href="https://github.com/FeatheredSnek/vue-recipes/" target="_blank" class="border-b border-gray-200 block py-4 text-center font-bold focus:outline-none focus:ring-2 focus:ring-inset focus:ring-lime-500">
+            GitHub
+          </a>
         </div>
       </Transition>
     </nav>
