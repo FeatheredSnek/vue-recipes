@@ -13,7 +13,7 @@
       <img 
         class="h-48 w-full object-cover" 
         :src="$imagepath('recipeth', image)"
-        alt="Man looking at item at a store"
+        :alt="name"
       >
     </div>
     <!-- text data: name and writer name (if exists) -->

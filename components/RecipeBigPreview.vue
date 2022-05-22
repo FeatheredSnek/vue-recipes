@@ -12,7 +12,7 @@
       <img 
         class="md:max-h-96 h-full w-full object-cover" 
         :src="$imagepath('recipe', image)"
-        alt="Man looking at item at a store"
+        :alt="blurb"
       >
     </div>
     <!-- text data: name, writer and blurb -->

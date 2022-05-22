@@ -12,7 +12,7 @@
           <img 
             class="h-24 w-24 rounded-full object-cover " 
             :src="$imagepath('writerth', image)"
-            alt="Man looking at item at a store"
+            :alt="shortBio"
           >
         </nuxt-link>
         <!-- name + blurb -->
