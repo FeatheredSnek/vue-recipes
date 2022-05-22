@@ -89,15 +89,23 @@
                 </AppActionButton>
               </div>
               <!-- button share -->
-              <div class="w-1/2 sm:w-36 md:w-44">
-              <AppActionButton @click="share()">
+              <div class="relative w-1/2 sm:w-36 md:w-44">
+              <AppActionButton @click="sharePopup = !sharePopup">
                 <template #icon>
                   <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z" />
                 </template>
                 <template #text>
                   Share recipe
                 </template>
-              </AppActionButton>  
+              </AppActionButton>
+              <AppSharePopup
+                v-show="sharePopup"
+                @closepopup="sharePopup = false"
+                :url="`${$config.baseUrl}/recipes/${$route.params.id}`"
+                :title="recipeData.name"
+                :description="recipeData.blurb"
+                :media="imageUrl"
+              />
               </div>
             </div>
           </div>
@@ -149,12 +157,14 @@ import AppSeparator from "@/components/AppSeparator.vue"
 import AppActionButton from "@/components/AppActionButton.vue"
 import RecipeIngredientsList from "@/components/RecipeIngredientsList.vue"
 import AppFetchStateIndicator from "@/components/AppFetchStateIndicator.vue"
+import AppSharePopup from "@/components/AppSharePopup.vue"
 
 export default {
   name: "RecipePage",
   components: {
     AppSeparator,
     AppActionButton,
+    AppSharePopup,
     AppFetchStateIndicator,
     WriterSmallPreview,
     PreviewContainer,
@@ -187,7 +197,8 @@ export default {
       },
       storageEnabled: true,
       addFavsAvailable: true,
-      isFavorite: false
+      isFavorite: false,
+      sharePopup: false
     };
   },
   async fetch() {
@@ -215,6 +226,9 @@ export default {
     },
     servingsLabel() {
       return `${this.recipeData.servings} serving${this.recipeData.servings > 1 ? 's' : ''}`
+    },
+    imageUrl() {
+      return this.$imagepath('recipe', this.recipeData.image)
     }
   },
   methods: {
