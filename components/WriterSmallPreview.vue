@@ -32,16 +32,16 @@
         <!-- socials -->
         <div class="sm:h-24 shrink-0 flex overflow-visible items-center justify-between gap-8 sm:gap-6 pt-6 sm:pt-0 sm:pl-6 md:pl-12 border-t sm:border-t-0 sm:border-l border-gray-200">
           <a v-if="socials.facebook" :href="socials.facebook" target="_blank">
-            <img class="h-6 w-6" src="@/assets/icons/facebook.svg"/>
+            <img class="h-6 w-6" src="@/assets/icons/social/facebook.svg"/>
           </a>
           <a v-if="socials.facebook" :href="socials.instagram" target="_blank">
-            <img class="h-6 w-6" src="@/assets/icons/instagram.svg"/>
+            <img class="h-6 w-6" src="@/assets/icons/social/instagram.svg"/>
           </a>
           <a v-if="socials.twitter" :href="socials.twitter" target="_blank">
-            <img class="h-6 w-6" src="@/assets/icons/twitter.svg"/>
+            <img class="h-6 w-6" src="@/assets/icons/social/twitter.svg"/>
           </a>
           <a v-if="socials.tiktok" :href="socials.tiktok" target="_blank">
-            <img class="h-6 w-6" src="@/assets/icons/tiktok.svg"/>
+            <img class="h-6 w-6" src="@/assets/icons/social/tiktok.svg"/>
           </a>
         </div>
       </div>

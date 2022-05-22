@@ -9,7 +9,7 @@
         :quote="description"
         :media="media"
       >
-        <img src="../assets/icons/facebook.svg" class="w-5 h-5"/>
+        <img src="../assets/icons/social/facebook.svg" class="w-5 h-5"/>
       </ShareNetwork>
       <ShareNetwork
         network="twitter"
@@ -19,7 +19,7 @@
         :media="media"
         twitterUser="nuxtsalad"
       >
-        <img src="../assets/icons/twitter.svg" class="w-5 h-5"/>
+        <img src="../assets/icons/social/twitter.svg" class="w-5 h-5"/>
       </ShareNetwork>
       <ShareNetwork
         network="pinterest"
@@ -28,7 +28,7 @@
         :description="description"
         :media="media"
       >
-        <img src="../assets/icons/pinterest.svg" class="w-5 h-5"/>
+        <img src="../assets/icons/social/pinterest.svg" class="w-5 h-5"/>
       </ShareNetwork>
       <button @click.prevent="$emit('closepopup')" class="h-4 w-4 rounded">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">

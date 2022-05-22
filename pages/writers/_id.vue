@@ -27,7 +27,7 @@
                   :class="{'hidden': !value}"
                 >
                   <img 
-                    :src="require(`@/assets/icons/${key}.svg`)"
+                    :src="require(`@/assets/icons/social/${key}.svg`)"
                     class="h-full w-full" 
                   />
                 </a>
@@ -52,7 +52,7 @@
                 :class="{'hidden': !value}"
               >
                 <img 
-                  :src="require(`@/assets/icons/${key}.svg`)"
+                  :src="require(`@/assets/icons/social/${key}.svg`)"
                   class="h-full w-full" 
                 />
               </a>
