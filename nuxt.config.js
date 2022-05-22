@@ -37,8 +37,8 @@ export default {
       // { property: 'twitter:title', content: 'nuxtSalad - delicious and healthy salad recipes' },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'shortcut icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
+      { rel: 'shortcut icon', type: 'image/x-icon', href: '/favicon.png' },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "true" },
       { 
