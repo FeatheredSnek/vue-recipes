@@ -244,11 +244,6 @@ export default {
       localStorage.setItem('favorites', currentFavsArr.toString())
       this.isFavorite = false
     },
-    share() {
-      // it would use 
-      // https://github.com/nicolasbeauvais/vue-social-sharing
-      console.log('share');
-    },
     checkIfFavorite() {
       if (process.client) { //eslint-disable-line
         if (localStorage.getItem('favorites') === null) return false
