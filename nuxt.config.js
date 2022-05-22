@@ -72,6 +72,7 @@ export default {
   modules: [
     '@nuxt/http',
     '@nuxtjs/dotenv',
+    'vue-social-sharing/nuxt',
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
