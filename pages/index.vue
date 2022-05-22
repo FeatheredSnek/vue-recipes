@@ -2,7 +2,7 @@
   <div>
     <AppFetchStateIndicator v-if="$fetchState.pending" indicates="loading"/>
     <AppFetchStateIndicator v-else-if="$fetchState.error" indicates="error"/>
-    <div v-else class="flex w-full">
+    <div v-else class="flex w-full justify-between">
       <div class="lg:w-2/3 w-full">
         <h2 class="font-bold text-3xl text-gray-600 pb-4">
           Today's featured
@@ -16,8 +16,8 @@
           :friendly-id="featured.friendlyId"
         />
       </div>
-      <div class="hidden lg:w-1/3 lg:flex justify-center items-center">
-        <img src="@/assets/icons/welcome.svg" class="w-4/5"/>
+      <div class="hidden lg:w-1/3 lg:flex justify-end items-center">
+        <img src="@/assets/icons/welcome.svg" class="w-[90%]"/>
 
       </div>
     </div>
