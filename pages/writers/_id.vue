@@ -120,6 +120,27 @@ export default {
     },
     writerType() {
       return this.badge ? "Accomplished writer" : "Recipe writer"
+    },
+    head() {
+      return {
+        title: `${this.name} - nuxtSalads writer`,
+        meta: [
+          { 
+            hid: 'description', 
+            name: 'description', 
+            content: this.bio, 
+          },
+          { property: 'og:url', content: `${this.$config.baseUrl}/writers/${this.$route.params.id}` },
+          { property: 'og:title', content: `${this.name} - nuxtSalads writer` },
+          { property: 'og:type', content: 'profile' },
+          { property: 'og:description', content: this.bio },
+          { property: 'og:image', content: this.$imagepath('writer', this.image) },
+          { property: 'og:image:alt', content: `${this.name} - personal photo` },
+          { name: 'twitter:description', content: this.bio },
+          { name: 'twitter:image', content: this.$imagepath('writer', this.image) },
+          { name: 'twitter:title', content: `${this.name} - nuxtSalads writer` },
+        ]
+      }
     }
   }
 }

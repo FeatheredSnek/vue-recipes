@@ -231,6 +231,8 @@ export default {
       this.isFavorite = false
     },
     share() {
+      // it would use 
+      // https://github.com/nicolasbeauvais/vue-social-sharing
       console.log('share');
     },
     checkIfFavorite() {
@@ -265,6 +267,27 @@ export default {
         }
       }
     },
+  },
+  head() {
+    return {
+      title: this.recipeData.name,
+      meta: [
+        { 
+          hid: 'description', 
+          name: 'description', 
+          content: this.recipeData.blurb, 
+        },
+        { property: 'og:url', content: `${this.$config.baseUrl}/recipes/${this.$route.params.id}` },
+        { property: 'og:title', content: this.recipeData.name },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:description', content: this.recipeData.blurb },
+        { property: 'og:image', content: this.$imagepath('recipe', this.recipeData.image) },
+        { property: 'og:image:alt', content: `${this.recipeData.name} - photo of the prepared salad` },
+        { name: 'twitter:description', content: this.recipeData.blurb },
+        { name: 'twitter:image', content: this.$imagepath('recipe', this.recipeData.image) },
+        { name: 'twitter:title', content: this.recipeData.name },
+      ]
+    }
   }
 }
 </script>

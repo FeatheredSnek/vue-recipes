@@ -59,6 +59,22 @@ export default {
     let apiURL = `${this.$config.apiBaseURL}/allwriters.php`;
     let apiResponse = await this.$http.$get(apiURL);
     this.writers = apiResponse
+  },
+  head() {
+    return {
+      title: 'nuxtSalad - about',
+      meta: [
+        { 
+          hid: 'description', 
+          name: 'description', 
+          content: 'A perfect place to find delicious and healthy salad recipes, curated and taste-tested by passionate professionals.' 
+        },
+        { property: 'og:url', content: this.$config.baseUrl },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:title', content: 'nuxtSalad - delicious and healthy salad recipes' },
+        { property: 'og:description', content: 'A perfect place to find delicious and healthy salad recipes, curated and taste-tested by passionate professionals.' },
+      ]
+    }
   }
 }
 </script>

@@ -87,5 +87,26 @@ export default {
     this.featured.friendlyId = apiResponse.friendly_id
     this.featured.writer = apiResponse.writer
   },
+  head() {
+    return {
+      title: 'nuxtSalad - delicious and healthy recipes',
+      meta: [
+        { 
+          hid: 'description', 
+          name: 'description', 
+          content: 'A perfect place to find delicious and healthy salad recipes, curated and taste-tested by passionate professionals.' 
+        },
+        { property: 'og:url', content: this.$config.baseUrl },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:title', content: 'nuxtSalad - delicious and healthy salad recipes' },
+        { property: 'og:description', content: 'A perfect place to find delicious and healthy salad recipes, curated and taste-tested by passionate professionals.' },
+        { property: 'og:image', content: this.$imagepath('recipe', this.featured.image) },
+        { property: 'og:image:alt', content: 'A delicious salad you can make with one of our recipes' },
+        { name: 'twitter:description', content: 'A perfect place to find delicious and healthy salad recipes, curated and taste-tested by passionate professionals.' },
+        { name: 'twitter:image', content: this.$imagepath('recipe', this.featured.image) },
+        { name: 'twitter:title', content: 'nuxtSalad - delicious and healthy salad recipes' },
+      ]
+    }
+  }
 }
 </script>
