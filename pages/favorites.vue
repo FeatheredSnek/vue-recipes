@@ -7,7 +7,7 @@
       <h2 class="font-bold text-4xl text-gray-600 pb-4">You don't have any favorites </h2>
       <h3 class="font-bold text-xl text-lime-500 pb-6">Search for something you like and build your salad collection!</h3>
       <div class="w-full max-w-sm">
-        <SearchBarTop />
+        <SearchBar />
       </div>
     </div>
     <div v-else>
@@ -44,7 +44,7 @@
 <script>
 import RecipeSmallPreview from "@/components/RecipeSmallPreview.vue"
 import AppActionButton from "@/components/AppActionButton.vue"
-import SearchBarTop from "@/components/SearchBarTop.vue"
+import SearchBar from "@/components/SearchBar.vue"
 import AppFetchStateIndicator from "@/components/AppFetchStateIndicator.vue"
 
 export default {
@@ -52,7 +52,7 @@ export default {
   components: {
     RecipeSmallPreview,
     AppActionButton,
-    SearchBarTop,
+    SearchBar,
     AppFetchStateIndicator,
   },
   beforeMount() {

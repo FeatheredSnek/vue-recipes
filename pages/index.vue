@@ -49,7 +49,7 @@
       <h2 class="font-bold text-4xl text-gray-600 pb-4">Still hungry?</h2>
       <h3 class="font-bold text-xl text-lime-500 pb-6">Search our delicious database and find your next awesome salad!</h3>
       <div class="w-full max-w-sm">
-        <SearchBarTop />
+        <SearchBar />
       </div>
     </div>
 
@@ -59,7 +59,7 @@
 <script>
 import RecipeBigPreview from "@/components/RecipeBigPreview.vue"
 import PreviewContainer from "@/components/PreviewContainer.vue"
-import SearchBarTop from "@/components/SearchBarTop.vue"
+import SearchBar from "@/components/SearchBar.vue"
 import AppSeparator from "@/components/AppSeparator.vue"
 import AppFetchStateIndicator from "@/components/AppFetchStateIndicator.vue"
 
@@ -68,7 +68,7 @@ export default {
   components: {
     RecipeBigPreview,
     PreviewContainer,
-    SearchBarTop,
+    SearchBar,
     AppSeparator,
     AppFetchStateIndicator,
   },

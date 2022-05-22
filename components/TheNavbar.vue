@@ -35,7 +35,7 @@
         </button>
         <!-- search bar - visible on search open click -->
         <div ref="searchbar" class="transitioning hidden">
-          <SearchBarTop 
+          <SearchBar 
             :focused="searchFocus" 
             class="ml-2"
           />
@@ -52,31 +52,31 @@
           <img src="../assets/icons/logo-full-3.svg" class="lg:block hidden h-10"/>
         </nuxt-link>
         <div class="h-full flex justify-between items-center place-items-end">
-          <AppNavbarLink route-name="index">
+          <NavbarLink route-name="index">
             Favorites
-          </AppNavbarLink>
-          <AppNavbarLink route-name="index">
+          </NavbarLink>
+          <NavbarLink route-name="index">
             Browse
-          </AppNavbarLink>
-          <AppNavbarLink route-name="about">
+          </NavbarLink>
+          <NavbarLink route-name="about">
             About us
-          </AppNavbarLink>
-          <SearchBarTop :focused="searchFocus" />
+          </NavbarLink>
+          <SearchBar :focused="searchFocus" />
         </div>
       </div>
 
       <!-- mobile openable menu -->
       <Transition name="menu">
         <div v-if="mobileOpened" class="bg-white">
-          <MenuItem route-name="index">
+          <NavbarMobileLink route-name="index">
             Favorites
-          </MenuItem>
-          <MenuItem route-name="index">
+          </NavbarMobileLink>
+          <NavbarMobileLink route-name="index">
             Browse
-          </MenuItem>
-          <MenuItem route-name="about">
+          </NavbarMobileLink>
+          <NavbarMobileLink route-name="about">
             About us
-          </MenuItem>
+          </NavbarMobileLink>
         </div>
       </Transition>
     </nav>
@@ -85,16 +85,16 @@
 </template>
 
 <script>
-import MenuItem from "@/components/MenuItem.vue"
-import SearchBarTop from '@/components/SearchBarTop.vue'
-import AppNavbarLink from "@/components/AppNavbarLink.vue"
+import NavbarMobileLink from "@/components/NavbarMobileLink.vue"
+import SearchBar from '@/components/SearchBar.vue'
+import NavbarLink from "@/components/NavbarLink.vue"
 
 export default {
-  name: "AppNavbar",
+  name: "TheNavbar",
   components: { 
-    MenuItem,
-    SearchBarTop,
-    AppNavbarLink
+    NavbarMobileLink,
+    SearchBar,
+    NavbarLink
   },
   data() {
     return {

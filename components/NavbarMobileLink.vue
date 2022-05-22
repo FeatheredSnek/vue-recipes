@@ -8,7 +8,7 @@
 </template>
 <script>
 export default {
-  name: "MenuItem",
+  name: "NavbarMobileLink",
   props: {
     routeName: {
       type: String,
