@@ -20,7 +20,7 @@
         >
           <nuxt-link :to="{ name: 'index' }">
             <img src="../assets/icons/logo-icon.svg" class="sm:hidden block h-10"/>
-            <img src="../assets/icons/logo-full-3.svg" class="sm:block hidden h-10"/>
+            <img src="../assets/icons/logo-full.svg" class="sm:block hidden h-10"/>
           </nuxt-link>
         </div>
         <!-- search open button -->
@@ -49,7 +49,7 @@
           class="font-bold h-20 px-6 rounded-lg flex items-center justify-center"
         >
           <img src="../assets/icons/logo-icon.svg" class="lg:hidden block h-10"/>
-          <img src="../assets/icons/logo-full-3.svg" class="lg:block hidden h-10"/>
+          <img src="../assets/icons/logo-full.svg" class="lg:block hidden h-10"/>
         </nuxt-link>
         <div class="h-full flex justify-between items-center place-items-end">
           <NavbarLink route-name="favorites">
