@@ -1,12 +1,9 @@
 <template>
   <div>
-    <!-- <div class="welcome">
-      Hero welcome
-    </div> -->
     <AppFetchStateIndicator v-if="$fetchState.pending" indicates="loading"/>
     <AppFetchStateIndicator v-else-if="$fetchState.error" indicates="error"/>
     <div v-else class="flex w-full">
-      <div class="md:w-2/3 w-full">
+      <div class="lg:w-2/3 w-full">
         <h2 class="font-bold text-3xl text-gray-600 pb-4">
           Today's featured
         </h2>
@@ -19,12 +16,8 @@
           :friendly-id="featured.friendlyId"
         />
       </div>
-      <div class="hidden md:block">
-        Popular this week
-        <span>def </span>
-        <span class="sm:hidden">sm </span>
-        <span class="md:hidden">md </span>
-        <span class="lg:hidden">lg </span>
+      <div class="hidden lg:w-1/3 lg:flex justify-center items-center">
+        <img src="@/assets/icons/welcome.svg" class="w-4/5"/>
 
       </div>
     </div>
