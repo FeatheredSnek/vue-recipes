@@ -103,9 +103,11 @@ export default {
     getStoredFavs(type = 'array') {
       if (process.client && this.localStorageAvailable()) { // eslint-disable-line
         const stored = localStorage.getItem('favorites')
-        if (type == 'string') return stored
+        if (type == 'string') {
+          return stored ? stored : ''
+        }
         if (type == 'array') {
-          return stored.split(',')
+          return stored ? stored.split(',') : []
         }
       }
     }
