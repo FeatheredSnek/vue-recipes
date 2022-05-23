@@ -56,7 +56,7 @@ export default {
     }
   },
   async fetch() {
-    let apiURL = `${this.$config.apiBaseURL}/allwriters.php`;
+    let apiURL = `/nuxt-recipes-api/allwriters.php`;
     let apiResponse = await this.$http.$get(apiURL);
     this.writers = apiResponse
   },

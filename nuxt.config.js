@@ -58,6 +58,7 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxt/http',
+    '@nuxtjs/proxy',
     '@nuxtjs/dotenv',
     'vue-social-sharing/nuxt',
   ],
@@ -81,5 +82,18 @@ export default {
   tailwindcss: {
     configPath: '~/tailwind.config.js',
     cssPath: '~/assets/css/tailwind.css'
+  },
+
+  http: {
+    proxy: true,
+    https: true,
+    retry: true,
+  },
+
+  proxy: {
+    '/nuxt-recipes-api/': {
+      target: process.env.API_URL || 'http://127.0.0.1/', // eslint-disable-line
+      // pathRewrite: { '^/api/': '' }
+    }
   }
 }

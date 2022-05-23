@@ -105,7 +105,7 @@ export default {
     }
   },
   async fetch() {
-    let apiURL = `${this.$config.apiBaseURL}/writer.php?friendly_id=${this.$route.params.id}`;
+    let apiURL = `/nuxt-recipes-api/writer.php?friendly_id=${this.$route.params.id}`;
     let apiResponse = await this.$http.$get(apiURL);
     this.name = apiResponse.name
     this.bio = apiResponse.long_bio
@@ -115,8 +115,7 @@ export default {
   },
   computed: {
     customUrl() {
-      const base = this.$config.apiBaseURL
-      return `${base}/search.php?writer=${this.id}`
+      return `/nuxt-recipes-api/search.php?writer=${this.id}`
     },
     writerType() {
       return this.badge ? "Accomplished writer" : "Recipe writer"

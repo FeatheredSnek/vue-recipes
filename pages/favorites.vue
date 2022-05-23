@@ -67,7 +67,7 @@ export default {
   fetchOnServer: false,
   async fetch() {
     const favString = this.storedFavs.toString()
-    let apiURL = `${this.$config.apiBaseURL}/favorites.php?ids=${favString}`
+    let apiURL = `/nuxt-recipes-api/favorites.php?ids=${favString}`
     let apiResponse = await this.$http.$get(apiURL);
     this.favRecipes = apiResponse
   },
@@ -97,7 +97,6 @@ export default {
         const removedIndex = this.favRecipes.findIndex(
           el => el.friendly_id === recipeId
         )
-        console.log('remove' + recipeId + ' at ' + removedIndex);
         this.favRecipes.splice(removedIndex, 1)
       }
     },

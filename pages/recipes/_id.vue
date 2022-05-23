@@ -202,7 +202,7 @@ export default {
     };
   },
   async fetch() {
-    let apiURL = `${this.$config.apiBaseURL}/recipe.php?friendly_id=${this.$route.params.id}`;
+    let apiURL = `/nuxt-recipes-api/recipe.php?friendly_id=${this.$route.params.id}`;
     let apiResponse = await this.$http.$get(apiURL);
     this.recipeData.name = apiResponse.name
     this.recipeData.blurb = apiResponse.blurb
@@ -217,9 +217,8 @@ export default {
   },
   computed: {
     customUrl() {
-      const base = this.$config.apiBaseURL
       const count = 3
-      return `${base}/more.php?current=${this.id}&count=${count}`
+      return `/nuxt-recipes-api/more.php?current=${this.id}&count=${count}`
     },
     prepTimeLabel() {
       return `${this.recipeData.prepTime} minutes`
