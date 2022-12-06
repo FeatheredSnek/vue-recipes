@@ -1,6 +1,5 @@
 # nuxtSalad
 Nuxt based website with salad recipes, server side rendered for SEO and sharing.
-Check it out [deployed to heroku](https://nuxt-recipes.herokuapp.com/).
 
 ## Background and purpose
 After working with Vue SPAs for quite some time, I wanted to try SSR with Nuxt.
