@@ -1,5 +1,5 @@
 # nuxtSalad
-Nuxt based website with salad recipes, server side rendered for SEO and sharing.
+Nuxt based website with salad recipes, server side rendered for SEO and sharing. [See it deployed to Fly.io](https://nuxt-salads-demo.fly.dev)
 
 ## Background and purpose
 After working with Vue SPAs for quite some time, I wanted to try SSR with Nuxt.
