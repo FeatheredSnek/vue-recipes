@@ -37,7 +37,7 @@ export default {
     }
   },
   async fetch() {
-    let apiURL = `/nuxt-recipes-api/more.php?count=${this.$props.count}`
+    let apiURL = `https://dorianm.com/nuxt-recipes-api/more.php?count=${this.$props.count}`
     if (this.$props.customUrl.length) {
       apiURL = this.$props.customUrl
     }

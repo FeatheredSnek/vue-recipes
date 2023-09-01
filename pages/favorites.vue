@@ -67,7 +67,7 @@ export default {
   fetchOnServer: false,
   async fetch() {
     const favString = this.storedFavs.toString()
-    let apiURL = `/nuxt-recipes-api/favorites.php?ids=${favString}`
+    let apiURL = `https://dorianm.com/nuxt-recipes-api/favorites.php?ids=${favString}`
     let apiResponse = await this.$http.$get(apiURL);
     this.favRecipes = apiResponse
   },

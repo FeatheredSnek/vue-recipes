@@ -71,7 +71,7 @@ export default {
     }
   },
   async fetch() {
-    let apiURL = `/nuxt-recipes-api/featured.php`
+    let apiURL = `https://dorianm.com/nuxt-recipes-api/featured.php`
     let apiResponse = await this.$http.$get(apiURL);
     this.featured.name = apiResponse.name
     this.featured.blurb = apiResponse.blurb

@@ -56,7 +56,7 @@ export default {
     }
   },
   async fetch() {
-    let apiURL = `/nuxt-recipes-api/allwriters.php`;
+    let apiURL = `https://dorianm.com/nuxt-recipes-api/allwriters.php`;
     let apiResponse = await this.$http.$get(apiURL);
     this.writers = apiResponse
   },

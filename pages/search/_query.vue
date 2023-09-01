@@ -146,7 +146,7 @@ export default {
     }
   },
   async fetch() {
-    let apiURL = `/nuxt-recipes-api/search.php?q=${this.$route.params.query}`
+    let apiURL = `https://dorianm.com/nuxt-recipes-api/search.php?q=${this.$route.params.query}`
     if (this.$route.query.vegan == true) apiURL += '&vegan=1'
     if (this.$route.query.vegetarian == true) apiURL += '&vegetarian=1'
     if (this.$route.query.maindish == true) apiURL += '&maindish=1'

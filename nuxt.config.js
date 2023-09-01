@@ -75,8 +75,8 @@ export default {
 
   publicRuntimeConfig: {
     baseUrl: process.env.BASE_URL || 'http://localhost:3000', // eslint-disable-line
-    apiBaseURL: process.env.API_URL || 'http://127.0.0.1', // eslint-disable-line
-    imageHost: process.env.CDN_URL || '/images', // eslint-disable-line
+    apiBaseURL: 'https://dorianm.com/nuxt-recipes-api',
+    imageHost: 'https://dorianm.com/nuxt-recipes-images'
   },
 
   tailwindcss: {
@@ -90,10 +90,11 @@ export default {
     retry: true,
   },
 
-  proxy: {
-    '/nuxt-recipes-api/': {
-      target: process.env.API_URL || 'http://127.0.0.1/', // eslint-disable-line
-      // pathRewrite: { '^/api/': '' }
-    }
-  }
+  // proxy: {
+  //   '/nuxt-recipes-api/': {
+  //     target: 'https://dorianm.com/nuxt-recipes-api/'
+  //     // target: process.env.API_URL || 'http://127.0.0.1/', // eslint-disable-line
+  //     // pathRewrite: { '^/api/': '' }
+  //   }
+  // }
 }

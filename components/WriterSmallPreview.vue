@@ -77,7 +77,7 @@
       }
     },
     async fetch() {
-      let apiURL = `/nuxt-recipes-api/writer.php?friendly_id=${this.$props.id}`;
+      let apiURL = `https://dorianm.com/nuxt-recipes-api/writer.php?friendly_id=${this.$props.id}`;
       let apiResponse = await this.$http.$get(apiURL);
       this.name = apiResponse.name
       this.shortBio = apiResponse.short_bio
